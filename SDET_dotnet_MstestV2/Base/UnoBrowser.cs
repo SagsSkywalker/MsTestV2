@@ -17,7 +17,7 @@ namespace SDET_dotnet_MstestV2.Base
 
         public IWebDriver CreateBrowser(Browser browser)
         {
-            IWebDriver driver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
+            IWebDriver driver = new ChromeDriver(@"C:\Webdrivers\");
             driver.Manage().Window.Maximize();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(6);
             driver.Navigate().GoToUrl("https://www.unosquare.com");
@@ -27,6 +27,10 @@ namespace SDET_dotnet_MstestV2.Base
         public void Click(IWebElement element)
         {
             element.Click();
+        }
+
+        public void WriteInElement(IWebElement element, string value) {
+            element.SendKeys(value);
         }
     }
 }
