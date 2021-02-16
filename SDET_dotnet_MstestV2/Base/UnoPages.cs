@@ -7,6 +7,7 @@ namespace SDET_dotnet_MstestV2.Base
     {
         protected UnoBrowser browser;
         protected IWebDriver driver;
+        //Abstract class constructor
         public UnoPages()
         {
             browser = new UnoBrowser();
