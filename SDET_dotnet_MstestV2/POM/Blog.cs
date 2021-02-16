@@ -1,6 +1,8 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using SDET_dotnet_MstestV2.Base;
 using SeleniumExtras.PageObjects;
+using SeleniumExtras.WaitHelpers;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -24,6 +26,10 @@ namespace SDET_dotnet_MstestV2.POM
         }
 
         public Blog GoToBlog() {
+            //Implementing the Explicit Wait
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5.00));
+            wait.Until(ExpectedConditions.ElementToBeClickable(BlogLink));
+
             browser.Click(BlogLink);
             return this;
         }
